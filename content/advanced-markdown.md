@@ -7,11 +7,12 @@ imageMeta:
 featured: true
 authors:
   - ghost
-date: Tue Jun 12 2018 17:50:55 GMT+0100 (IST)
+date: Tue Jun 18 2020 11:50:55 GMT+0100 (IST)
 tags:
   - getting-started
 ---
 
+COPY to Test
 There are lots of powerful things you can do with the Markdown
 
 If you've gotten pretty comfortable with [all the basics](/the-editor/) of writing in Markdown, then you may enjoy some more advanced tips about the types of things you can do!
