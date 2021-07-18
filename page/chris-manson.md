@@ -12,6 +12,7 @@ tags:
 ---
 
 
-|PAGE{ Copy to test
+[ PAGE  Copy to test ]
+with titel, image imageMeta featured authors date tags
 
 empress-blog is entirely open source so if you want to see how it works or if you would like to contribute please [check out the git repository](https://github.com/empress/empress-blog).
