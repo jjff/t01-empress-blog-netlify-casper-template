@@ -1,7 +1,7 @@
 ---
 name: Jean Fontaine
 id: jjff55
-image: /images/chris.jpg
+image: /images/jjff.jpg
 cover:
 website:
 twitter: real_ate
