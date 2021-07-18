@@ -1,1 +1,95 @@
 
+---
+title: Empress-Blog with Ember
+image: /images/design.jpg
+imageMeta:
+  attribution:
+  attributionLink:
+featured: true
+authors:
+  - jjff55
+date: Tue Jun 18 2020 11:51:55 GMT+0100 (IST)
+tags:
+  - analyze creation process
+---
+
+ember-blueprint  has 3 main folders
+   1) addon
+   2) app
+   3) blueprints
+1) adapters, controllers, helpers, routes, services
+     app; author page post tag, app, index; excerpt; 
+     <same as ctrls>; blog, head-data, url
+2) adapters, components, controllers, helpers, initializers, 
+   models, routes, serializers, services
+     app; markdown-to-html; <same as addon-ctrls>; excerpt; 
+     routes; author page post tag; <same as ctrls>;
+     content tag, app; blog, head-data, url
+3) author, page, post, tag, empress-blog-addon, empress-blog
+     files/author/__name__.js index.js:Generates a new author, 
+     name:capital, id:kebab;  files/page/__name__.js index.js:Generates a new page, authors = walkSync('author', 
+     {globs: ['*.md'],}) title name author date; files/content/__name__.js index.js:Generates a new post, 
+     <same or similar to page>;  files/tag/__name__.js index.js:Generates a new tag, title, name;
+     filesToRemove, The default blueprint for empress-blog when installing in an addon.;
+     files/__base__/, author (chris.md, ghost.md), content (7 files), page (chris-manson.md), tag (2 files), app (index.html), public/images (12 files)
+     
+     
+     
+app.initzrs.routes:
+    this.route('post', { path: ':id' });
+    this.route('page', { path: '/page/:id' });
+    this.route('author', { path: '/author/:id'});
+    this.route('tag', { path: '/tag/:id' });
+ app.models
+        author
+  name: attr('string'),
+  image: attr('string'),
+  coverImage: attr('string'),
+  coverMeta: attr(),
+  content: attr('string'),
+  html: attr(),
+  website: attr('string'),
+  twitter: attr('string'),
+  facebook: attr('string'),
+  location: attr('string'),
+  posts: hasMany('content'),   
+
+        content
+  title: attr('string'),
+  canonical: attr(),
+  content: attr('string'),
+  excerpt: attr(),
+  html: attr('string'), //
+  image: attr('string'),
+  imageMeta: attr(),
+  featured: attr('boolean'),
+  status: attr('string'),
+  date: attr('date'),
+  tags: hasMany('tag'), //
+  _primaryTagId: attr(),
+  primaryTag: computed('tags.[]', '_primaryTagId', function() {
+    return this.get('tags').findBy('id', this.get('_primaryTagId'));
+  }),
+  authors: hasMany('author'),
+  author: computed('authors.[]', function() {
+    deprecate(`"author" is deprecated in the content model. You must use "authors" now in your templates.`, false, {
+      id: 'empress-blog:content-model-author',
+      until: '4.0.0',
+    });
+    return get(this, 'authors.firstObject');
+  })
+ 
+         page
+  <same as content>
+
+        tag
+  name: DS.attr('string'),
+  image: DS.attr('string'),
+  imageMeta: DS.attr(),
+  content: DS.attr('string'),
+  html: DS.attr(),
+  // workaround for unstable ember-data relationship id sorting
+  // see: https://discuss.emberjs.com/t/manual-pagination-in-ember-data-relationships/18087
+  _postIds: DS.attr(),
+  posts: DS.hasMany('content'),
+        
