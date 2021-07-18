@@ -7,11 +7,11 @@ imageMeta:
 featured: true
 authors:
   - ghost
-date: Tue Jun 12 2018 17:58:54 GMT+0100 (IST)
+date: Tue Jun 18 2020 11:50:55 GMT+0100 (IST)
 tags:
   - getting-started
 ---
-
+COPY to test
 empress-blog uses a language called **Markdown** to format text, and so does the original Ghost 🎉
 
 The main difference between the hosted Ghost platform and empress-blog is that we just use files on disk, so you can either edit your Markdown files directly or you can use a desktop Markdown editor. It keeps things simple but it can sometimes feel like you are writing on pro-mode 😎
