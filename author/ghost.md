@@ -8,4 +8,4 @@ twitter:
 facebook:
 location:
 ---
-You can delete this user to remove all the welcome posts
+Used for the welcome posts
