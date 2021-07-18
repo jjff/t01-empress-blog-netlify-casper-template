@@ -32,6 +32,10 @@ module.exports = function(environment) {
         label: 'Home',
         route: 'index'
       }, {
+        label: 'JJFF',
+        route: 'page',
+        id: 'jjff55'
+      }, {
         label: 'Built by JJFF based on C.M.',
         route: 'page',
         id: 'jjff55'
