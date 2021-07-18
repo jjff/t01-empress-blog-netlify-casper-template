@@ -36,9 +36,9 @@ module.exports = function(environment) {
         route: 'page',
         id: 'jjff55'
       }, {
-        label: 'Built by JJFF based on C.M.',
+        label: 'BP by C.M.',
         route: 'page',
-        id: 'jjff55'
+        id: 'chris-manson'
       }]
     },
 
